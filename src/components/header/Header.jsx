@@ -19,11 +19,11 @@ const Header = () => {
         </p>
         <div
           onClick={handleToggleTheme}
-          className="w-6 bg-gray h-3 rounded-full ml-4 mr-2 relative cursor-pointer"
+          className="w-[2.1rem] bg-gray h-[1rem] rounded-full ml-4 mr-2 relative cursor-pointer"
         >
           <div
-            className={`rounded-full w-[8.8px] h-[8.8px] bg-white absolute top-[1.7px] ${
-              !isDarkTheme ? "left-[1.7px]" : "left-[13px]"
+            className={`rounded-full w-[0.8rem] h-[0.8rem] bg-white absolute top-[1.3px] ${
+              !isDarkTheme ? "left-[2.5px]" : "left-[18px]"
             } transition-all duration-100 ease-in-out`}
           ></div>
         </div>

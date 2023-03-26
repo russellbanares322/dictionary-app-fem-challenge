@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const DictionaryContext = createContext();
 
 export const DictionaryProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const handleToggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
