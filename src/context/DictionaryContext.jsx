@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createContext, useState } from "react";
 const DictionaryContext = createContext();
 
@@ -13,6 +14,7 @@ export const DictionaryProvider = ({ children }) => {
   const handleSearchWord = (e) => {
     e.preventDefault();
     setWord(searchInput);
+    setSearchInput("");
   };
 
   const values = {

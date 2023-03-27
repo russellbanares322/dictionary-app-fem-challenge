@@ -25,8 +25,8 @@ const useFetchWord = () => {
         console.log(res.data.slice(0, 1));
         setError(null);
       })
-      .catch((err) => {
-        setError(err.message);
+      .catch(() => {
+        setError("Sorry, no word matches your query");
         setIsLoading(false);
       });
   };

@@ -10,7 +10,7 @@ const SearchInput = () => {
       <input
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        className="w-full mt-4 bg-gray-purple outline-none px-3 h-12 font-bold rounded-md text-sm"
+        className="w-full mt-4 bg-gray-purple outline-none px-7 h-12 font-bold rounded-lg text-md  text-black"
         type="text"
       />
     </form>
