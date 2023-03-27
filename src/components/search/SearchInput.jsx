@@ -6,13 +6,14 @@ const SearchInput = () => {
     useContext(DictionaryContext);
   console.log(searchInput);
   return (
-    <input
-      onSubmit={handleSearchWord}
-      value={searchInput}
-      onChange={(e) => setSearchInput(e.target.value)}
-      className="w-full mt-4 bg-gray-purple outline-none px-3 h-11 font-bold rounded-md text-sm"
-      type="text"
-    />
+    <form onSubmit={handleSearchWord}>
+      <input
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+        className="w-full mt-4 bg-gray-purple outline-none px-3 h-12 font-bold rounded-md text-sm"
+        type="text"
+      />
+    </form>
   );
 };
 

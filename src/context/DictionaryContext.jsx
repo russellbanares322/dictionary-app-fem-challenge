@@ -3,14 +3,15 @@ const DictionaryContext = createContext();
 
 export const DictionaryProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState(null);
   const [searchInput, setSearchInput] = useState("");
 
   const handleToggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
 
-  const handleSearchWord = () => {
+  const handleSearchWord = (e) => {
+    e.preventDefault();
     setWord(searchInput);
   };
 

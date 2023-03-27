@@ -13,6 +13,7 @@ const Dictionary = () => {
   return (
     <div>
       {isLoading && <h1>Loading...</h1>}
+      {error && <h1>{error}</h1>}
       {data?.map((val) => (
         <div key={val?.id}>
           <div className="flex justify-between items-center mt-10">
