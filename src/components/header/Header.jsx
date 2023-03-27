@@ -9,7 +9,7 @@ const Header = () => {
     <div className="flex justify-between items-center">
       <BiBook className="text-gray" size={33} />
       <div className="flex justify-center items-center">
-        <select className="px-3 text-black font-semi-bold text-[1rem] cursor-pointer outline-none appearance-none relative after:absolute after:content-[('../../assets/chevron.svg')]">
+        <select className="appearance-none px-3 text-black font-semi-bold text-[1rem] cursor-pointer relative outline-none after:block after:absolute after:right-0 after:content-chevronIcon after:h-10 after:w-10">
           <option>Serif</option>
           <option>Sans</option>
           <option>Mono</option>

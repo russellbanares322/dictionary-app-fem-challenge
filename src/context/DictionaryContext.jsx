@@ -21,7 +21,6 @@ export const DictionaryProvider = ({ children }) => {
     isDarkTheme,
     handleToggleTheme,
     word,
-    setWord,
     setSearchInput,
     searchInput,
     handleSearchWord,

@@ -9,6 +9,11 @@ module.exports = {
       gray: "#757575",
       white: "#ffffff",
     },
+    extend: {
+      content: {
+        chevronIcon: 'url("./src/assets/chevron.svg")',
+      },
+    },
   },
   plugins: [],
 };

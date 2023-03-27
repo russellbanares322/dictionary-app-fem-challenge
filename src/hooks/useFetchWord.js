@@ -26,7 +26,7 @@ const useFetchWord = () => {
         setError(null);
       })
       .catch(() => {
-        setError("Sorry, no word matches your query");
+        setError(`Sorry, no query matches the word ${word}`);
         setIsLoading(false);
       });
   };

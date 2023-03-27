@@ -1,8 +1,8 @@
 export const RandomWords = [
-  "jump",
+  "cherry",
   "walk",
   "stumble",
-  "stampede",
-  "jogging",
-  "marinate",
+  "luggage",
+  "launch",
+  "describe",
 ];
