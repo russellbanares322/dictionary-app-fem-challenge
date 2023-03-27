@@ -1,22 +1,19 @@
 import React, { useContext } from "react";
 import { BiBook, BiMoon } from "react-icons/bi";
-import { TbChevronDown } from "react-icons/tb";
 import DictionaryContext from "../../context/DictionaryContext";
 
 const Header = () => {
   const { isDarkTheme, handleToggleTheme } = useContext(DictionaryContext);
 
-  const dropdownIcon = <TbChevronDown size={20} />;
-
   return (
     <div className="flex justify-between items-center">
       <BiBook className="text-gray" size={33} />
       <div className="flex justify-center items-center">
-        <p
-          className={`text-black mr-5 relative font-bold after:content-['${dropdownIcon}'] after:pl-2 after:absolute`}
-        >
-          Serif
-        </p>
+        <select className="px-3 text-black font-semi-bold text-[1rem] cursor-pointer outline-none appearance-none relative after:absolute after:content-[('../../assets/chevron.svg')]">
+          <option>Serif</option>
+          <option>Sans</option>
+          <option>Mono</option>
+        </select>
         <div
           onClick={handleToggleTheme}
           className="w-[2.1rem] bg-gray h-[1rem] rounded-full ml-4 mr-2 relative cursor-pointer"
