@@ -25,6 +25,7 @@ const Dictionary = () => {
       clearTimeout(modifyAudioIcon);
     }, 3000);
   }, [isAudioPlayed]);
+
   return (
     <div>
       {error && <h1 className="text-center mt-20 text-2xl">{error}</h1>}
@@ -38,8 +39,7 @@ const Dictionary = () => {
 
             {val?.phonetics
               .filter(({ audio }) => audio !== null)
-              .reverse()
-              .slice(0, 1)
+              .slice(-1)
               .map(({ audio }, index) => (
                 <div
                   onClick={() => handlePlayAudio(audio)}

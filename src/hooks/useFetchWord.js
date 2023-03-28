@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import DictionaryContext from "../context/DictionaryContext";
-import { RandomWords } from "../data/RandomWords";
+import { randomWords } from "../data/DictionaryData";
 
 const useFetchWord = () => {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ const useFetchWord = () => {
   const { word } = useContext(DictionaryContext);
 
   const randomWord =
-    RandomWords[Math.floor(Math.random() * RandomWords.length)];
+    randomWords[Math.floor(Math.random() * randomWords.length)];
 
   const handleFetchText = async () => {
     setIsLoading(true);
