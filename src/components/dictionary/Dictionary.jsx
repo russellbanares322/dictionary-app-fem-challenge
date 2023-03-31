@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoPlaySharp, IoStopSharp } from "react-icons/io5";
 import { TbExternalLink } from "react-icons/tb";
+import DictionaryContext from "../../context/DictionaryContext";
 import useFetchWord from "../../hooks/useFetchWord";
 
 const Dictionary = () => {
   const [isAudioPlayed, setIsAudioPlayed] = useState(false);
   const { data, error } = useFetchWord();
+  const { isDarkTheme } = useContext(DictionaryContext);
+  const audioIconStyle = isDarkTheme ? "text-purple p-1" : "text-purple p-1";
+  const fontColor = isDarkTheme ? "text-white" : "text-black";
 
   const handlePlayAudio = (wordAudio) => {
     const audio = new Audio(wordAudio);
@@ -33,10 +37,9 @@ const Dictionary = () => {
         <div key={val?.id}>
           <div className="flex justify-between items-center mt-10">
             <div className="flex flex-col gap-1">
-              <p className=" text-black font-bold text-4xl">{val?.word}</p>
+              <p className={` font-bold text-4xl ${fontColor}`}>{val?.word}</p>
               <p className="text-purple mt-1 text-lg">{val?.phonetic}</p>
             </div>
-
             {val?.phonetics
               .filter(({ audio }) => audio !== null)
               .slice(-1)
@@ -44,27 +47,31 @@ const Dictionary = () => {
                 <div
                   onClick={() => handlePlayAudio(audio)}
                   key={index}
-                  className="bg-light-purple p-3 rounded-full cursor-pointer"
+                  className={` p-3 rounded-full cursor-pointer ${
+                    isDarkTheme ? "bg-dark-purple" : "bg-light-purple"
+                  }`}
                 >
                   {!isAudioPlayed && (
                     <IoPlaySharp
                       onClick={() => handlePlayAudio(audio)}
-                      className="text-purple  pl-1"
-                      size={25}
+                      className={audioIconStyle}
+                      size={27}
                     />
                   )}
                   {!!isAudioPlayed && (
                     <IoStopSharp
                       onClick={() => handleStopAudio(audio)}
-                      className="text-purple pl-1"
-                      size={25}
+                      className={audioIconStyle}
+                      size={27}
                     />
                   )}
                 </div>
               ))}
           </div>
           <div className="mt-7">
-            <p className="font-bold relative after:absolute after:right-0 after:top-[50%] after:bg-light-purple after:w-[90%] after:h-[0.9px] after:block">
+            <p
+              className={`font-bold relative after:absolute after:right-0 after:top-[50%] after:bg-light-purple after:w-[80%] after:h-[0.9px] after:block md:after:w-[90%] ${fontColor}`}
+            >
               noun
             </p>
           </div>
@@ -76,12 +83,12 @@ const Dictionary = () => {
                 .map(({ definitions }) =>
                   definitions?.map(({ definition }, index) => (
                     <div key={index}>
-                      {!definition ? (
+                      {definition?.length === 0 ? (
                         <p className="text-purple">N/A</p>
                       ) : (
                         <>
                           <li className="text-purple font-light mt-3">
-                            <span className="text-black">{definition}</span>
+                            <span className={fontColor}>{definition}</span>
                           </li>
                         </>
                       )}
@@ -96,14 +103,16 @@ const Dictionary = () => {
                   .filter(({ partOfSpeech }) => partOfSpeech === "noun")
                   .map(({ synonyms }, index) => (
                     <p key={index} className="text-purple font-semibold">
-                      {!synonyms ? "N/A" : synonyms?.join(", ")}
+                      {synonyms?.length == 0 ? "N/A" : synonyms?.join(", ")}
                     </p>
                   ))}
               </div>
             </div>
           </div>
           <div className="mt-7">
-            <p className="font-bold relative after:absolute after:place-content-start after:right-0 after:top-[50%] after:bg-light-purple after:w-[90%] after:h-[0.9px] after:block">
+            <p
+              className={`font-bold relative after:absolute after:place-content-start after:right-0 after:top-[50%] after:bg-light-purple after:w-[80%] after:h-[0.9px] after:block md:after:w-[90%] ${fontColor}`}
+            >
               verb
             </p>
           </div>
@@ -117,12 +126,12 @@ const Dictionary = () => {
                     <div key={index}>
                       <>
                         <li className="list-disc text-purple font-light mt-3">
-                          <span className="text-black">{definition}</span>
+                          <span className={fontColor}>{definition}</span>
                         </li>
                         {example?.length > 1 && (
                           <p className="text-gray mt-2">"{example}"</p>
                         )}
-                        {example?.length === 0 && (
+                        {example?.length == 0 && (
                           <p className="text-purple">N/A</p>
                         )}
                       </>
@@ -132,14 +141,14 @@ const Dictionary = () => {
             </ul>
             <hr className="text-light-purple mt-8 h-[0.6px]" />
             <div className="flex justify-start items-center mt-5">
-              <p className="text-gray mr-6 text-sm">Source</p>
+              <p className="text-gray mr-5 text-sm">Source</p>
               <a
                 href={val?.sourceUrls[0]}
                 target="_blank"
-                className="text-black text-xs flex justify-center items-center gap-1 cursor-pointer underline"
+                className={`text-xs flex justify-center items-center gap-1 cursor-pointer underline ${fontColor}`}
               >
                 {val?.sourceUrls[0]}
-                <TbExternalLink className="text-gray" size={16} />
+                <TbExternalLink className={fontColor} size={16} />
               </a>
             </div>
           </div>

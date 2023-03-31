@@ -22,7 +22,6 @@ const useFetchWord = () => {
       .then((res) => {
         setData(res.data.slice(0, 1));
         setIsLoading(false);
-        console.log(res.data.slice(0, 1));
         setError(null);
       })
       .catch(() => {

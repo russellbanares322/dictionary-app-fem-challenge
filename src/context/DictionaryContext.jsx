@@ -9,7 +9,7 @@ export const DictionaryProvider = ({ children }) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
 
   const handleToggleSelect = () => {
-    setIsSelectOpen(!isSelectOpen);
+    setIsSelectOpen((prev) => !prev);
   };
 
   const handleToggleTheme = () => {
@@ -20,6 +20,12 @@ export const DictionaryProvider = ({ children }) => {
     e.preventDefault();
     setWord(searchInput);
     setSearchInput("");
+  };
+
+  const handleSelectFont = (e, selectedFont) => {
+    e.stopPropagation();
+    setFont(selectedFont.toString());
+    setIsSelectOpen(false);
   };
 
   const values = {
@@ -34,6 +40,7 @@ export const DictionaryProvider = ({ children }) => {
     isSelectOpen,
     setIsSelectOpen,
     handleToggleSelect,
+    handleSelectFont,
   };
   return (
     <DictionaryContext.Provider value={values}>

@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import DictionaryContext from "../../context/DictionaryContext";
 
 const SearchInput = () => {
-  const { searchInput, setSearchInput, handleSearchWord } =
+  const { searchInput, setSearchInput, handleSearchWord, isDarkTheme } =
     useContext(DictionaryContext);
   console.log(searchInput);
   return (
@@ -12,7 +12,9 @@ const SearchInput = () => {
         autoFocus
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        className="w-full mt-10 bg-gray-purple  px-7 h-12 font-bold rounded-xl text-md  text-black focus:outline-purple"
+        className={`w-full mt-10 px-7 h-12 font-bold rounded-xl text-md focus:outline-purple ${
+          isDarkTheme ? "bg-dark-gray text-white" : "bg-gray-purple text-black"
+        }`}
         type="text"
       />
       <BiSearch className="text-purple absolute top-14 right-4" size={18} />
