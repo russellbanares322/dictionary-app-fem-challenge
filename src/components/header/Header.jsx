@@ -32,16 +32,16 @@ const Header = () => {
             {font}
           </p>
           <div
-            className={`${
-              isSelectOpen
-                ? "bg-white text-start absolute w-full pb-1 visible"
-                : "hidden"
-            }`}
+            className={`text-start absolute w-full pb-1 rounded-sm ${
+              isSelectOpen ? "visible" : "hidden"
+            } ${isDarkTheme ? "bg-gray" : "bg-white"}`}
           >
             {fontOptions.map((val, index) => (
               <p
                 onClick={(e) => handleSelectFont(e, val.style)}
-                className="pl-2 hover:bg-light-purple transition duration-75 ease-in-out"
+                className={`pl-2 hover:bg-light-purple transition duration-75 ease-in-out ${
+                  isDarkTheme ? "hover:text-black text-white" : "text-black"
+                }`}
                 key={index}
               >
                 {val.style}

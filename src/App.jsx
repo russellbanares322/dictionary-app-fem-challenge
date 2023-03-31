@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { BounceLoader } from "react-spinners";
-import { twMerge } from "tailwind-merge";
 import Dictionary from "./components/dictionary/Dictionary";
 import Header from "./components/header/Header";
 import SearchInput from "./components/search/SearchInput";
@@ -20,14 +19,13 @@ function App() {
 
   return (
     <div
-      className={`
-        flex justify-center items-center py-10 px-10 md:px-1 transition duration-500 ease-in-out ${fontStyle} ${
+      className={`flex min-h-[400px]   flex-col justify-center items-center py-10 px-10 md:px-1 transition duration-500 ease-in-out ${fontStyle} ${
         isDarkTheme ? "bg-dark" : "bg-white"
       }`}
     >
-      <div className="h-full w-[35rem] mx-3 md:mx-2">
+      <div className="w-[35rem] mx-3 md:mx-2 flex-grow-1">
         {!!isLoading && (
-          <div className="flex items-center justify-center mt-32">
+          <div className="flex items-center justify-center h-screen">
             <BounceLoader color="#A544ED" size={80} />
           </div>
         )}

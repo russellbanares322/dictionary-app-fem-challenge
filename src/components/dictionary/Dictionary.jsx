@@ -27,7 +27,7 @@ const Dictionary = () => {
     const modifyAudioIcon = setTimeout(() => {
       setIsAudioPlayed(false);
       clearTimeout(modifyAudioIcon);
-    }, 3000);
+    }, 2000);
   }, [isAudioPlayed]);
 
   return (
@@ -70,7 +70,7 @@ const Dictionary = () => {
           </div>
           <div className="mt-7">
             <p
-              className={`font-bold relative after:absolute after:right-0 after:top-[50%] after:bg-light-purple after:w-[80%] after:h-[0.9px] after:block md:after:w-[90%] ${fontColor}`}
+              className={`font-bold relative after:absolute after:right-0 after:top-[50%] after:bg-light-purple after:w-[80%] after:h-[0.1px] after:block md:after:w-[90%] ${fontColor}`}
             >
               noun
             </p>
@@ -111,7 +111,7 @@ const Dictionary = () => {
           </div>
           <div className="mt-7">
             <p
-              className={`font-bold relative after:absolute after:place-content-start after:right-0 after:top-[50%] after:bg-light-purple after:w-[80%] after:h-[0.9px] after:block md:after:w-[90%] ${fontColor}`}
+              className={`font-bold relative after:absolute after:place-content-start after:right-0 after:top-[50%] after:bg-light-purple after:w-[80%] after:h-[0.1px] after:block md:after:w-[90%] ${fontColor}`}
             >
               verb
             </p>
@@ -139,7 +139,7 @@ const Dictionary = () => {
                   ))
                 )}
             </ul>
-            <hr className="text-light-purple mt-8 h-[0.6px]" />
+            <hr className="text-light-purple mt-8 h-[0.1px]" />
             <div className="flex justify-start items-center mt-5">
               <p className="text-gray mr-5 text-sm">Source</p>
               <a
